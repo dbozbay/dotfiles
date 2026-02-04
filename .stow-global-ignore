@@ -13,11 +13,11 @@ _darcs
 \.gitignore
 \.gitmodules
 
+\.DS_Store
+
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
 
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
-
-\.DS_Store
