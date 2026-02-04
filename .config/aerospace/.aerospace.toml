@@ -100,13 +100,16 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
     run = 'move-node-to-workspace 1' 
 
 [[on-window-detected]]
-		if.app-id = 'com.tinyspeck.slackmacgap'
-		run = 'move-node-to-workspace 2' 
+    if.app-id = 'ai.perplexity.comet'
+    run = 'move-node-to-workspace 1' 
 
 [[on-window-detected]]
     if.app-id = 'com.microsoft.VSCode'
-    run = 'move-node-to-workspace 3' 
+    run = 'move-node-to-workspace 2' 
 
+[[on-window-detected]]
+	if.app-id = 'com.todesktop.230313mzl4w4u92'
+	run = 'move-node-to-workspace 2' 
 [[on-window-detected]]
 		if.app-id = 'com.mitchellh.ghostty'
 		run = ['layout tiling', 'move-node-to-workspace 3']
@@ -116,8 +119,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 		run = 'move-node-to-workspace 3' 
 
 [[on-window-detected]]
-		if.app-id = 'com.apple.mail'
+		if.app-id = 'com.tinyspeck.slackmacgap'
 		run = 'move-node-to-workspace 4' 
+
+[[on-window-detected]]
+		if.app-id = 'com.apple.mail'
+		run = 'move-node-to-workspace 5' 
 
 [[on-window-detected]]
 		if.app-id = 'com.spotify.client'
