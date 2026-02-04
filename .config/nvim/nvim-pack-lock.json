@@ -1,0 +1,79 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "bc54f81b6d92f91dac06c77c3ffccec5291e98cd",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
+    },
+    "colibri.vim": {
+      "rev": "ad82132e0cbbdfa194d722f15c2df8f0d04b5b71",
+      "src": "https://github.com/archseer/colibri.vim"
+    },
+    "cursor-dark.nvim": {
+      "rev": "d8800f6aa6c87038fdb2f25042249de2ab3b8b49",
+      "src": "https://github.com/ydkulks/cursor-dark.nvim"
+    },
+    "cursor-themes": {
+      "rev": "1173d11a77323adf3fd6d38c658bf58dc00301ac",
+      "src": "https://github.com/duarteocarmo/cursor-themes"
+    },
+    "devel.nvim": {
+      "rev": "34a201926bbe6371e2f772e51571dcc6eb74c1c3",
+      "src": "https://github.com/gnualmalki/devel.nvim"
+    },
+    "fff.nvim": {
+      "rev": "0523fe39ffc59373de0648ba636705d35a6fdfc2",
+      "src": "https://github.com/dmtrKovalenko/fff.nvim"
+    },
+    "gitsigns.nvim": {
+      "rev": "1ce96a464fdbc24208e24c117e2021794259005d",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "gruvbox.nvim": {
+      "rev": "9d0e3af224c5492069a493bb43c6ec2b78497454",
+      "src": "https://gitlab.com/motaz-shokry/gruvbox.nvim"
+    },
+    "koda.nvim": {
+      "rev": "9c69db5df7f1a82851d87fdac5b37a469213ac16",
+      "src": "https://github.com/oskarnurm/koda.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "mini.nvim": {
+      "rev": "f28cd08c8be826355d64080400fab1764c9693dd",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "modus-themes.nvim": {
+      "rev": "c57c2c56c9f0af04f3b609d11caa840880074784",
+      "src": "https://github.com/miikanissi/modus-themes.nvim"
+    },
+    "neovim": {
+      "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
+      "src": "https://github.com/rose-pine/neovim"
+    },
+    "nvim-autopairs": {
+      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
+    "nvim-treesitter": {
+      "rev": "4967fa48b0fe7a7f92cee546c76bb4bb61bb14d5",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "a0e182ae21fda68c59d1f36c9ed45600aef50311",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+      "version": "'main'"
+    },
+    "nvim-web-devicons": {
+      "rev": "746ffbb17975ebd6c40142362eee1b0249969c5c",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "oil.nvim": {
+      "rev": "f55b25e493a7df76371cfadd0ded5004cb9cd48a",
+      "src": "https://github.com/stevearc/oil.nvim"
+    }
+  }
+}

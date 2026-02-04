@@ -1,0 +1,11 @@
+[user]
+	name = Danny Bozbay
+	email = 107803920+dbozbay@users.noreply.github.com
+	username = dbozbay
+[core]
+	editor = nvim -f
+	excludesfile = ~/.global_gitignore
+[init]
+	defaultBranch = main
+[checkout]
+	defaultRemote = origin
