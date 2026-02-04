@@ -119,12 +119,16 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 		run = 'move-node-to-workspace 3' 
 
 [[on-window-detected]]
-		if.app-id = 'com.tinyspeck.slackmacgap'
+		if.app-id = 'com.anthropic.claudefordesktop'
 		run = 'move-node-to-workspace 4' 
 
 [[on-window-detected]]
-		if.app-id = 'com.apple.mail'
+		if.app-id = 'com.tinyspeck.slackmacgap'
 		run = 'move-node-to-workspace 5' 
+
+[[on-window-detected]]
+		if.app-id = 'com.apple.mail'
+		run = 'move-node-to-workspace 6' 
 
 [[on-window-detected]]
 		if.app-id = 'com.spotify.client'
