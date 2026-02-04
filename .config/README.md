@@ -2,7 +2,7 @@
 
 Welcome to the finely tuned chaos that is my machine’s configuration.  
 
-These are the user-level dotfiles for macOS, organized for GNU Stow so you can pretend you “just remember” all your tweaks.
+These are the user-level dotfiles for macOS, all happily versioned under `~/.config` so you can pretend you “just remember” all your tweaks.
 
 ### What’s in the box?
 
@@ -31,11 +31,11 @@ These dotfiles are organized for **GNU Stow**, the symlink farm manager that mak
 
 2. **Clone this repo** to `~/.config` (or wherever you keep your dotfiles):
    ```bash
-   git clone https://github.com/dbozbay/dotfiles.git
-   cd dotfiles
+   git clone <your-repo-url> ~/.config
+   cd ~/.config
    ```
 
-3. **Stow all the packages** at once to your home directory:
+3. **Stow all the packages** at once:
    ```bash
    stow -t ~ .
    ```
