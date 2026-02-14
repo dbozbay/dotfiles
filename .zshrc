@@ -8,3 +8,7 @@ alias lla='eza --color=always --color-scale=all --color-scale-mode=gradient --ic
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/node@24/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/donya/.antigravity/antigravity/bin:$PATH"
