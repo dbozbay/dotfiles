@@ -1,7 +1,5 @@
-vim.g.mapleader = " "
-
 local opt = vim.opt
-
+vim.g.mapleader = " "
 opt.number = true
 opt.relativenumber = true
 opt.wrap = false
@@ -22,8 +20,32 @@ opt.undofile = true
 opt.incsearch = true
 
 -- ============================================================================
+-- Package Management
+-- ============================================================================
+--
+vim.pack.add({
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/dmtrKovalenko/fff.nvim" },
+	{ src = "https://github.com/windwp/nvim-autopairs" },
+	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/gnualmalki/devel.nvim" },
+}, { load = true })
+
+-- ============================================================================
+-- Colorscheme
+-- ============================================================================
+
+vim.cmd.colorscheme("devel")
+
+-- ============================================================================
 -- LSP Configuration
 -- ============================================================================
+
 vim.lsp.enable({ "ruff", "pyrefly", "luals", "clangd", "rust-analyzer" })
 vim.diagnostic.config({ virtual_text = true })
 
@@ -100,33 +122,6 @@ autocmd("FileType", {
 	end,
 })
 
--- ============================================================================
--- Package Management
--- ============================================================================
-vim.pack.add({
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
-	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
-	{ src = "https://github.com/stevearc/oil.nvim" },
-	{ src = "https://github.com/dmtrKovalenko/fff.nvim" },
-	{ src = "https://github.com/nvim-mini/mini.nvim" },
-	{ src = "https://github.com/windwp/nvim-autopairs" },
-	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
-	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	-- { src = "https://github.com/ydkulks/cursor-dark.nvim" },
-	{ src = "https://github.com/duarteocarmo/cursor-themes" },
-}, { load = true })
-
--- ============================================================================
--- Colorscheme
--- ============================================================================
-vim.cmd.colorscheme("cursor-dark")
-
--- ============================================================================
--- Plugin Configuration
--- ============================================================================
-
 -- FFF
 vim.g.fff = {
 	lazy_sync = true,
@@ -192,21 +187,6 @@ require("blink.cmp").setup({
 	},
 })
 
--- Mini.move
-require("mini.move").setup({
-	mappings = {
-		left = "<C-h>",
-		right = "<C-l>",
-		down = "<C-j>",
-		up = "<C-k>",
-
-		line_left = "<C-h>",
-		line_right = "<C-l>",
-		line_down = "<C-j>",
-		line_up = "<C-k>",
-	},
-})
-
 -- Autopairs
 require("nvim-autopairs").setup({})
 
@@ -221,6 +201,7 @@ require("lualine").setup({
 -- ============================================================================
 -- Keymaps
 -- ============================================================================
+--
 local keymap = vim.keymap.set
 
 -- General
@@ -254,58 +235,67 @@ keymap("n", "<leader><leader>", function()
 end)
 keymap("n", "-", "<CMD>Oil<CR>")
 
+-- Select all
+keymap("v", "ae", "ggVG")
+
+-- Text editing
+keymap("v", "K", ":m '<-2<CR>gv=gv")
+keymap("v", "J", ":m '>+1<CR>gv=gv")
+keymap("v", "H", "<gv")
+keymap("v", "L", ">gv")
+
 -- Treesitter text objects
 local nts_select = require("nvim-treesitter-textobjects.select").select_textobject
 local nts_move = require("nvim-treesitter-textobjects.move")
 
 -- Text object selection
-keymap("x", "af", function()
+keymap({ "x", "o" }, "af", function()
 	nts_select("@function.outer", "textobjects")
 end)
-keymap("x", "if", function()
+keymap({ "x", "o" }, "if", function()
 	nts_select("@function.inner", "textobjects")
 end)
-keymap("x", "ac", function()
+keymap({ "x", "o" }, "ac", function()
 	nts_select("@class.outer", "textobjects")
 end)
-keymap("x", "ic", function()
+keymap({ "x", "o" }, "ic", function()
 	nts_select("@class.inner", "textobjects")
 end)
 
 -- Text object navigation (next start)
-keymap({ "n", "x" }, "]f", function()
+keymap({ "n", "o" }, "]f", function()
 	nts_move.goto_next_start("@function.outer", "textobjects")
 end)
-keymap({ "n", "x" }, "]c", function()
+keymap({ "n", "o" }, "]c", function()
 	nts_move.goto_next_start("@class.outer", "textobjects")
 end)
-keymap({ "n", "x" }, "]l", function()
+keymap({ "n", "o" }, "]l", function()
 	nts_move.goto_next_start({ "@loop.inner", "@loop.outer" }, "textobjects")
 end)
-keymap({ "n", "x" }, "]s", function()
+keymap({ "n", "o" }, "]s", function()
 	nts_move.goto_next_start("@local.scope", "locals")
 end)
 
 -- Text object navigation (next end)
-keymap({ "n", "x" }, "]F", function()
+keymap({ "n", "o" }, "]F", function()
 	nts_move.goto_next_end("@function.outer", "textobjects")
 end)
-keymap({ "n", "x" }, "]C", function()
+keymap({ "n", "o" }, "]C", function()
 	nts_move.goto_next_end("@class.outer", "textobjects")
 end)
 
 -- Text object navigation (previous start)
-keymap({ "n", "x" }, "[f", function()
+keymap({ "n", "o" }, "[f", function()
 	nts_move.goto_previous_start("@function.outer", "textobjects")
 end)
-keymap({ "n", "x" }, "[c", function()
+keymap({ "n", "o" }, "[c", function()
 	nts_move.goto_previous_start("@class.outer", "textobjects")
 end)
 
 -- Text object navigation (previous end)
-keymap({ "n", "x" }, "[F", function()
+keymap({ "n", "o" }, "[F", function()
 	nts_move.goto_previous_end("@function.outer", "textobjects")
 end)
-keymap({ "n", "x" }, "[C", function()
+keymap({ "n", "o" }, "[C", function()
 	nts_move.goto_previous_end("@class.outer", "textobjects")
 end)
