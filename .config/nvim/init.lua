@@ -24,6 +24,7 @@ opt.incsearch = true
 -- ============================================================================
 --
 vim.pack.add({
+
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
