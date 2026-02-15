@@ -1,7 +1,7 @@
 font-family = GoMono Nerd Font
-theme = Cursor Dark
+theme = Kitty Default
 font-size = 22
-font-thicken = true
+# font-thicken = true
 
 shell-integration-features = no-cursor
 
