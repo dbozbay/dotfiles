@@ -1,4 +1,5 @@
-font-family = GoMono Nerd Font
+font-family = SF Mono
+
 theme = Kitty Default
 font-size = 22
 # font-thicken = true
