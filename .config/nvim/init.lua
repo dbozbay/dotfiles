@@ -1,24 +1,3 @@
-local opt = vim.opt
-vim.g.mapleader = " "
-opt.number = true
-opt.relativenumber = true
-opt.wrap = false
-opt.tabstop = 2
-opt.smartindent = true
-opt.shiftwidth = 2
-opt.swapfile = false
-opt.cursorline = true
-opt.scrolloff = 8
-opt.hlsearch = false
-opt.cursorcolumn = false
-opt.guicursor = ""
-opt.termguicolors = true
-opt.ignorecase = true
-opt.winborder = "rounded"
-opt.signcolumn = "yes"
-opt.undofile = true
-opt.incsearch = true
-
 -- ============================================================================
 -- Package Management
 -- ============================================================================
@@ -35,11 +14,51 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/gnualmalki/devel.nvim" },
+	{ src = "https://github.com/fraeso/xcodedark.nvim" },
+	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 }, { load = true })
 
 -- ============================================================================
 -- Colorscheme
 -- ============================================================================
+--
+-- require("xcodedark").setup({
+-- 	transparent = true,
+-- 	integrations = {
+-- 		telescope = false,
+-- 		nvim_tree = false,
+-- 		gitsigns = true,
+-- 		bufferline = false,
+-- 		incline = false,
+-- 		lazygit = false,
+-- 		which_key = false,
+-- 		notify = true,
+-- 		snacks = false,
+-- 		blink = true,
+-- 	},
+--
+-- 	terminal_colors = true,
+-- })
+
+local opt = vim.opt
+vim.g.mapleader = " "
+opt.number = true
+opt.relativenumber = true
+opt.wrap = false
+opt.tabstop = 2
+opt.smartindent = true
+opt.shiftwidth = 2
+opt.swapfile = false
+opt.scrolloff = 8
+opt.hlsearch = false
+opt.cursorcolumn = false
+opt.guicursor = ""
+opt.termguicolors = true
+opt.ignorecase = true
+opt.winborder = "rounded"
+opt.signcolumn = "yes"
+opt.undofile = true
+opt.incsearch = true
 
 vim.cmd.colorscheme("devel")
 
@@ -47,8 +66,8 @@ vim.cmd.colorscheme("devel")
 -- LSP Configuration
 -- ============================================================================
 
-vim.lsp.enable({ "ruff", "pyrefly", "luals", "clangd", "rust-analyzer" })
-vim.diagnostic.config({ virtual_text = true })
+vim.lsp.enable({ "ruff", "pyrefly", "luals", "rumdl", "rust-analyzer" })
+-- vim.diagnostic.config({ virtual_text = false })
 
 -- ============================================================================
 -- Autocommands
@@ -126,10 +145,6 @@ autocmd("FileType", {
 -- FFF
 vim.g.fff = {
 	lazy_sync = true,
-	debug = {
-		enabled = true,
-		show_scores = true,
-	},
 }
 require("fff").setup()
 
@@ -155,34 +170,22 @@ require("blink.cmp").setup({
 	sources = { default = { "lsp", "path", "snippets", "buffer" } },
 	fuzzy = { implementation = "prefer_rust_with_warning" },
 	completion = {
-		documentation = { auto_show = false },
 		menu = {
-			border = "none",
-			draw = {
-				components = {
-					kind_icon = {
-						text = function(ctx)
-							local icon = ctx.kind_icon
-							if vim.tbl_contains({ "Path" }, ctx.source_name) then
-								local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
-								if dev_icon then
-									icon = dev_icon
-								end
-							end
-							return icon .. ctx.icon_gap
-						end,
-						highlight = function(ctx)
-							local hl = ctx.kind_hl
-							if vim.tbl_contains({ "Path" }, ctx.source_name) then
-								local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
-								if dev_icon then
-									hl = dev_hl
-								end
-							end
-							return hl
-						end,
-					},
-				},
+			auto_show = true,
+			border = "rounded",
+			winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+			scrollbar = true,
+		},
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 200,
+			treesitter_highlighting = true,
+			window = {
+				border = "rounded",
+				min_width = 10,
+				max_width = 80,
+				max_height = 30,
+				scrollbar = true,
 			},
 		},
 	},
@@ -198,6 +201,23 @@ require("lualine").setup({
 		section_separators = { left = "", right = "" },
 	},
 })
+
+require("tiny-inline-diagnostic").setup({
+	preset = "powerline",
+	options = {
+		multilines = {
+			enabled = true,
+		},
+		show_source = {
+			enabled = true,
+			if_many = true,
+		},
+		add_messages = {
+			display_count = true,
+		},
+	},
+})
+vim.diagnostic.config({ virtual_text = false })
 
 -- ============================================================================
 -- Keymaps
@@ -231,9 +251,16 @@ keymap({ "n", "v", "x" }, "<leader>p", '"+p')
 keymap("n", "<leader>U", "<cmd>lua vim.pack.update()<CR>")
 
 -- File navigation
-keymap("n", "<leader><leader>", function()
+keymap("n", "ff", function()
 	require("fff").find_files()
 end)
+
+keymap("n", "f/", function()
+	require("fff").live_grep({
+		modes = { "fuzzy" },
+	})
+end)
+
 keymap("n", "-", "<CMD>Oil<CR>")
 
 -- Select all
