@@ -1,8 +1,7 @@
-font-family = SF Mono
-
 theme = Kitty Default
+font-family = YWFT Cursor Mono
 font-size = 22
-# font-thicken = true
+font-thicken = true
 
 shell-integration-features = no-cursor
 
