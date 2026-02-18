@@ -21,26 +21,30 @@ These dotfiles are organized for **GNU Stow**, the symlink farm manager that mak
 #### First-time setup
 
 1. **Install stow** (if you haven't already):
+
    ```bash
    # macOS
    brew install stow
-   
+
    # Linux (Debian/Ubuntu)
    sudo apt install stow
    ```
 
 2. **Clone this repo** to `~/.config` (or wherever you keep your dotfiles):
+
    ```bash
    git clone https://github.com/dbozbay/dotfiles.git
    cd dotfiles
    ```
 
 3. **Stow all the packages** at once to your home directory:
+
    ```bash
    stow -t ~ .
    ```
-   
+
    Or stow individual packages if you're picky:
+
    ```bash
    stow -t ~ aerospace
    stow -t ~ ghostty
