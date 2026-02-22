@@ -10,7 +10,7 @@
       "src": "https://github.com/gnualmalki/devel.nvim"
     },
     "fff.nvim": {
-      "rev": "434344f6e94ac8596fd6323ea653c05900c9affa",
+      "rev": "8f69f987a4dd909fedf4c6a9a470f65317250ed4",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "gitsigns.nvim": {
@@ -26,7 +26,7 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-treesitter": {
-      "rev": "2bd9b9b4f12eed175fba35ca2db8e8584546a4ec",
+      "rev": "dc42c209f3820bdfaae0956f15de29689aa6b451",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },

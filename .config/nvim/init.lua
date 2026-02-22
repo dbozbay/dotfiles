@@ -256,9 +256,7 @@ keymap("n", "ff", function()
 end)
 
 keymap("n", "f/", function()
-	require("fff").live_grep({
-		modes = { "fuzzy" },
-	})
+	require("fff").live_grep({ query = "search term" })
 end)
 
 keymap("n", "-", "<CMD>Oil<CR>")
