@@ -1,0 +1,22 @@
+line-length = 120
+
+[lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+		"N",  # pep8 naming
+    "B",  # flake8-bugbear
+		"D",  # pydocstyle
+		"PL", # pylint
+    "C4", # flake8-comprehensions
+    "UP", # pyupgrade
+		"NPY",# numpy
+		"PD", # pandas
+		"RUF",# ruff specific rules
+]
+
+[format]
+docstring-code-format = true
+docstring-code-line-length = 20

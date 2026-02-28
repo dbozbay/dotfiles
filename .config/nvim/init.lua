@@ -13,32 +13,43 @@ vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/gnualmalki/devel.nvim" },
 	{ src = "https://github.com/fraeso/xcodedark.nvim" },
+	{ src = "https://github.com/bartekjaszczak/gruv-vsassist.nvim" },
+	{ src = "https://github.com/sainnhe/gruvbox-material" },
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 }, { load = true })
 
 -- ============================================================================
--- Colorscheme
+-- Colorschemes
 -- ============================================================================
 --
--- require("xcodedark").setup({
--- 	transparent = true,
--- 	integrations = {
--- 		telescope = false,
--- 		nvim_tree = false,
--- 		gitsigns = true,
--- 		bufferline = false,
--- 		incline = false,
--- 		lazygit = false,
--- 		which_key = false,
--- 		notify = true,
--- 		snacks = false,
--- 		blink = true,
--- 	},
---
--- 	terminal_colors = true,
--- })
+require("xcodedark").setup({
+	transparent = true,
+	integrations = {
+		telescope = false,
+		nvim_tree = false,
+		gitsigns = true,
+		bufferline = false,
+		incline = false,
+		lazygit = false,
+		which_key = false,
+		notify = true,
+		snacks = false,
+		blink = true,
+	},
+	terminal_colors = true,
+})
+
+require("gruv-vsassist").setup({
+	transparent = true,
+	italic_comments = true,
+	disable_nvimtree_bg = true,
+	color_overrides = {
+		vscLineNumber = "#FFFFFF",
+	},
+})
+
+vim.cmd.colorscheme("gruv-vsassist")
 
 local opt = vim.opt
 vim.g.mapleader = " "
@@ -55,12 +66,10 @@ opt.cursorcolumn = false
 opt.guicursor = ""
 opt.termguicolors = true
 opt.ignorecase = true
-opt.winborder = "rounded"
+opt.winborder = "bold"
 opt.signcolumn = "yes"
 opt.undofile = true
 opt.incsearch = true
-
-vim.cmd.colorscheme("devel")
 
 -- ============================================================================
 -- LSP Configuration
@@ -146,7 +155,11 @@ autocmd("FileType", {
 vim.g.fff = {
 	lazy_sync = true,
 }
-require("fff").setup()
+require("fff").setup({
+	preview = {
+		enabled = false,
+	}
+})
 
 -- Treesitter
 local parsers = { "lua", "python", "rust" }
@@ -171,22 +184,22 @@ require("blink.cmp").setup({
 	fuzzy = { implementation = "prefer_rust_with_warning" },
 	completion = {
 		menu = {
-			auto_show = true,
-			border = "rounded",
-			winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
-			scrollbar = true,
+			-- auto_show = true,
+			-- border = "rounded",
+			-- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
+			-- scrollbar = true,
 		},
 		documentation = {
 			auto_show = true,
 			auto_show_delay_ms = 200,
 			treesitter_highlighting = true,
-			window = {
-				border = "rounded",
-				min_width = 10,
-				max_width = 80,
-				max_height = 30,
-				scrollbar = true,
-			},
+			-- window = {
+			-- 	border = "rounded",
+			-- 	min_width = 10,
+			-- 	max_width = 80,
+			-- 	max_height = 30,
+			-- 	scrollbar = true,
+			-- },
 		},
 	},
 })
@@ -240,7 +253,7 @@ keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 
 -- LSP
-keymap("n", "<leader>ff", vim.lsp.buf.format)
+keymap("n", "<leader><leader>", vim.lsp.buf.format)
 
 -- Clipboard
 keymap("x", "y", [["+y]])
@@ -256,7 +269,7 @@ keymap("n", "ff", function()
 end)
 
 keymap("n", "f/", function()
-	require("fff").live_grep({ query = "search term" })
+	require("fff").live_grep()
 end)
 
 keymap("n", "-", "<CMD>Oil<CR>")

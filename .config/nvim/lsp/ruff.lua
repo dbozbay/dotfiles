@@ -5,6 +5,12 @@ return {
 		"pyproject.toml",
 		"ruff.toml",
 		".ruff.toml",
+		".git",
 	},
 	filetypes = { "python" },
+		init_options = {
+			settings = {
+				organizeImports = true,
+			},
+		},
 }
