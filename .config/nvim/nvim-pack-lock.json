@@ -9,10 +9,6 @@
       "rev": "465a0f30cf639a5b1137fc1b4120dfe7e2ed3d2c",
       "src": "https://github.com/mrpbennett/boo-berry.nvim"
     },
-    "devel.nvim": {
-      "rev": "34a201926bbe6371e2f772e51571dcc6eb74c1c3",
-      "src": "https://github.com/gnualmalki/devel.nvim"
-    },
     "fff.nvim": {
       "rev": "29f81a141f60a74368266fdc28207496c8080e8d",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
@@ -32,10 +28,6 @@
     "lualine.nvim": {
       "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
-    },
-    "midnight.nvim": {
-      "rev": "fe062a6f2e5bd77cd8a260f61e6e12789eaf4f13",
-      "src": "https://github.com/dasupradyumna/midnight.nvim"
     },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
