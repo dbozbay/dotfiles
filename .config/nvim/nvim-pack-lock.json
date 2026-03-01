@@ -5,6 +5,10 @@
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
     },
+    "boo-berry.nvim": {
+      "rev": "465a0f30cf639a5b1137fc1b4120dfe7e2ed3d2c",
+      "src": "https://github.com/mrpbennett/boo-berry.nvim"
+    },
     "devel.nvim": {
       "rev": "34a201926bbe6371e2f772e51571dcc6eb74c1c3",
       "src": "https://github.com/gnualmalki/devel.nvim"

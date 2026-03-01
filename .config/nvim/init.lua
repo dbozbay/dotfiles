@@ -16,6 +16,7 @@ vim.pack.add({
 	{ src = "https://github.com/fraeso/xcodedark.nvim" },
 	{ src = "https://github.com/bartekjaszczak/gruv-vsassist.nvim" },
 	{ src = "https://github.com/sainnhe/gruvbox-material" },
+	{ src = "https://github.com/mrpbennett/boo-berry.nvim"},
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 }, { load = true })
 
@@ -49,7 +50,37 @@ require("gruv-vsassist").setup({
 	},
 })
 
-vim.cmd.colorscheme("gruv-vsassist")
+
+require("boo-berry").setup({
+  -- Set italic comments
+  italic_comment = true, -- default: false
+
+  -- Use transparent background
+  transparent_bg = false, -- default: false
+
+  -- Show '~' after end of buffer
+  show_end_of_buffer = false, -- default: false
+
+  -- Custom lualine background
+  lualine_bg_color = nil, -- default: nil (uses berry_dim)
+
+  -- Override any palette colour
+  colors = {
+    bg = "#3A2A4D",
+    -- ... see lua/boo-berry/palette.lua for all keys
+  },
+
+  -- Override any highlight group
+  overrides = {},
+  -- or as a function:
+  -- overrides = function(colors)
+  --   return {
+  --     Normal = { fg = colors.fg },
+  --   }
+  -- end,
+})
+
+vim.cmd.colorscheme("boo-berry")
 
 local opt = vim.opt
 vim.g.mapleader = " "
@@ -151,6 +182,27 @@ autocmd("FileType", {
 	end,
 })
 
+
+autocmd("LspProgress", {
+    callback = function(ev)
+        local value = ev.data.params.value or {}
+        if not value.kind then return end
+
+        local status = value.kind == "end" and 0 or 1
+        local percent = value.percentage or 0
+        
+        local osc_seq = string.format("\27]9;4;%d;%d\a", status, percent)
+
+        if os.getenv("TMUX") then
+            osc_seq = string.format("\27Ptmux;\27%s\27\\", osc_seq)
+        end
+
+        io.stdout:write(osc_seq)
+        io.stdout:flush()
+    end,
+})
+
+
 -- FFF
 vim.g.fff = {
 	lazy_sync = true,
@@ -210,6 +262,7 @@ require("nvim-autopairs").setup({})
 -- Lualine
 require("lualine").setup({
 	options = {
+		theme = "boo-berry",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 	},
