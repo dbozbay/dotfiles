@@ -93,12 +93,12 @@ opt.shiftwidth = 2
 opt.swapfile = false
 opt.scrolloff = 8
 opt.hlsearch = false
-opt.cursorcolumn = false
+-- opt.cursorcolumn = false
+opt.cursorline = true
 opt.guicursor = ""
 opt.termguicolors = true
 opt.ignorecase = true
-opt.winborder = "bold"
-opt.signcolumn = "yes"
+-- opt.signcolumn = "yes"
 opt.undofile = true
 opt.incsearch = true
 
@@ -260,13 +260,46 @@ require("blink.cmp").setup({
 require("nvim-autopairs").setup({})
 
 -- Lualine
-require("lualine").setup({
-	options = {
-		theme = "boo-berry",
+-- require("lualine").setup({
+-- 	options = {
+-- 		theme = "boo-berry",
+-- 		component_separators = { left = "", right = "" },
+-- 		section_separators = { left = "", right = "" },
+-- 	},
+-- })
+
+
+require('lualine').setup{
+  options = {
+    theme = 'auto',
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-	},
-})
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {'buffers'},
+    lualine_x = {'tabs'},
+    lualine_y = {'progress'},
+    -- lualine_z = {
+    --   { 'diagnostics',
+    --     sources = {'nvim_diagnostic', 'nvim_lsp'},
+    --     sections = {'error', 'warn', 'info', 'hint'},
+    --     diagnostics_color = {
+    --       -- Same values as the general color option can be used here.
+    --       error = 'DiagnosticError', -- Changes diagnostics' error color.
+    --       warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+    --       info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+    --       hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+    --     },
+    --     symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
+    --     colored = true,           -- Displays diagnostics status in color if set to true.
+    --     update_in_insert = false, -- Update diagnostics in insert mode.
+    --     always_visible = false,   -- Show diagnostics even if there are none.
+    --   }
+    -- }
+  }
+}
 
 require("tiny-inline-diagnostic").setup({
 	preset = "powerline",
@@ -301,6 +334,11 @@ keymap("n", "sv", "<cmd>vsplit<CR>")
 keymap("n", "ss", "<cmd>split<CR>")
 keymap("n", "sd", "<cmd>close<CR>")
 
+keymap("n", "sh", "<C-w>h")
+keymap("n", "sk", "<C-w>k")
+keymap("n", "sj", "<C-w>j")
+keymap("n", "sl", "<C-w>l")
+
 -- Navigation
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
@@ -328,7 +366,7 @@ end)
 keymap("n", "-", "<CMD>Oil<CR>")
 
 -- Select all
-keymap("v", "ae", "ggVG")
+keymap("n", "vae", "ggVG")
 
 -- Text editing
 keymap("v", "K", ":m '<-2<CR>gv=gv")

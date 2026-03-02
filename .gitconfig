@@ -2,10 +2,17 @@
 	name = Danny Bozbay
 	email = 107803920+dbozbay@users.noreply.github.com
 	username = dbozbay
-[core]
-	editor = nvim -f
-	excludesfile = ~/.global_gitignore
 [init]
 	defaultBranch = main
+[pull]
+	rebase = true
 [checkout]
 	defaultRemote = origin
+[core]
+	editor = nvim --clean
+	excludesfile = ~/.gitignore_global
+[alias]
+	st = status
+	cm = commit -m
+	p = push
+	pretty = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
