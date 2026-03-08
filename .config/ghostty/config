@@ -1,9 +1,11 @@
-theme = Boo-Berry
-font-family = Terminus (TTF)
+theme = cursor-dark
+font-family = PlemolJP Console NF
 font-size = 24
 font-thicken = true
 
 shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = true
 
 macos-titlebar-style = hidden
 mouse-hide-while-typing = true
@@ -12,6 +14,7 @@ macos-window-shadow = false
 
 window-padding-x = 1
 window-padding-y = 1
+window-padding-balance = true
 
 keybind = ctrl+a>n=new_window
 keybind = ctrl+a>r=reload_config

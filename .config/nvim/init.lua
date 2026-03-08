@@ -1,9 +1,4 @@
--- ============================================================================
--- Package Management
--- ============================================================================
---
 vim.pack.add({
-
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
 	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
@@ -11,76 +6,49 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/dmtrKovalenko/fff.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
-	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/fraeso/xcodedark.nvim" },
-	{ src = "https://github.com/bartekjaszczak/gruv-vsassist.nvim" },
-	{ src = "https://github.com/sainnhe/gruvbox-material" },
-	{ src = "https://github.com/mrpbennett/boo-berry.nvim"},
+	-- { src = "https://github.com/fraeso/xcodedark.nvim" },
+	-- { src = "https://github.com/bartekjaszczak/gruv-vsassist.nvim" },
+	{ src = "https://github.com/ydkulks/cursor-dark.nvim" },
+	-- { src = "https://github.com/mrpbennett/boo-berry.nvim"},
+	-- { src = "https://github.com/gnualmalki/devel.nvim"},
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 }, { load = true })
 
--- ============================================================================
--- Colorschemes
--- ============================================================================
+-- require("xcodedark").setup({
+-- 	transparent = true,
+-- 	integrations = {
+-- 		telescope = false,
+-- 		nvim_tree = false,
+-- 		gitsigns = true,
+-- 		bufferline = false,
+-- 		incline = false,
+-- 		lazygit = false,
+-- 		which_key = false,
+-- 		notify = true,
+-- 		snacks = false,
+-- 		blink = true,
+-- 	},
+-- 	terminal_colors = true,
+-- })
+
+-- require("gruv-vsassist").setup({
+-- 	transparent = true,
+-- 	italic_comments = true,
+-- 	disable_nvimtree_bg = true,
+-- 	color_overrides = {
+-- 		vscLineNumber = "#FFFFFF",
+-- 	},
+-- })
+
+-- require("boo-berry").setup({
+--   italic_comment = true,
+--   colors = {
+--     bg = "#2B1C3D",
+--   },
+-- })
 --
-require("xcodedark").setup({
-	transparent = true,
-	integrations = {
-		telescope = false,
-		nvim_tree = false,
-		gitsigns = true,
-		bufferline = false,
-		incline = false,
-		lazygit = false,
-		which_key = false,
-		notify = true,
-		snacks = false,
-		blink = true,
-	},
-	terminal_colors = true,
-})
-
-require("gruv-vsassist").setup({
-	transparent = true,
-	italic_comments = true,
-	disable_nvimtree_bg = true,
-	color_overrides = {
-		vscLineNumber = "#FFFFFF",
-	},
-})
-
-
-require("boo-berry").setup({
-  -- Set italic comments
-  italic_comment = true, -- default: false
-
-  -- Use transparent background
-  transparent_bg = false, -- default: false
-
-  -- Show '~' after end of buffer
-  show_end_of_buffer = false, -- default: false
-
-  -- Custom lualine background
-  lualine_bg_color = nil, -- default: nil (uses berry_dim)
-
-  -- Override any palette colour
-  colors = {
-    bg = "#3A2A4D",
-    -- ... see lua/boo-berry/palette.lua for all keys
-  },
-
-  -- Override any highlight group
-  overrides = {},
-  -- or as a function:
-  -- overrides = function(colors)
-  --   return {
-  --     Normal = { fg = colors.fg },
-  --   }
-  -- end,
-})
-
-vim.cmd.colorscheme("boo-berry")
+vim.cmd.colorscheme("cursor-dark")
 
 local opt = vim.opt
 vim.g.mapleader = " "
@@ -93,28 +61,18 @@ opt.shiftwidth = 2
 opt.swapfile = false
 opt.scrolloff = 8
 opt.hlsearch = false
--- opt.cursorcolumn = false
 opt.cursorline = true
 opt.guicursor = ""
 opt.termguicolors = true
 opt.ignorecase = true
--- opt.signcolumn = "yes"
 opt.undofile = true
 opt.incsearch = true
+opt.winborder = "rounded"
 
--- ============================================================================
--- LSP Configuration
--- ============================================================================
+vim.lsp.enable({ "ruff", "ty", "luals", "rumdl", "rust-analyzer" })
 
-vim.lsp.enable({ "ruff", "pyrefly", "luals", "rumdl", "rust-analyzer" })
--- vim.diagnostic.config({ virtual_text = false })
-
--- ============================================================================
--- Autocommands
--- ============================================================================
 local autocmd = vim.api.nvim_create_autocmd
 
--- LSP keymaps on attach
 autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp_attach_keymaps", { clear = true }),
 	callback = function(args)
@@ -129,7 +87,6 @@ autocmd("LspAttach", {
 	end,
 })
 
--- Disable Ruff hover (use Pyright instead)
 autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),
 	callback = function(args)
@@ -144,7 +101,6 @@ autocmd("LspAttach", {
 	desc = "LSP: Disable hover capability from Ruff",
 })
 
--- FFF binary download on pack update
 autocmd("PackChanged", {
 	callback = function(event)
 		if event.data.updated then
@@ -153,7 +109,6 @@ autocmd("PackChanged", {
 	end,
 })
 
--- Treesitter auto-update
 autocmd("PackChanged", {
 	callback = function(args)
 		local spec = args.data.spec
@@ -165,7 +120,6 @@ autocmd("PackChanged", {
 	end,
 })
 
--- Treesitter filetype detection
 autocmd("FileType", {
 	callback = function(args)
 		local filetype = args.match
@@ -182,44 +136,20 @@ autocmd("FileType", {
 	end,
 })
 
-
-autocmd("LspProgress", {
-    callback = function(ev)
-        local value = ev.data.params.value or {}
-        if not value.kind then return end
-
-        local status = value.kind == "end" and 0 or 1
-        local percent = value.percentage or 0
-        
-        local osc_seq = string.format("\27]9;4;%d;%d\a", status, percent)
-
-        if os.getenv("TMUX") then
-            osc_seq = string.format("\27Ptmux;\27%s\27\\", osc_seq)
-        end
-
-        io.stdout:write(osc_seq)
-        io.stdout:flush()
-    end,
-})
-
-
--- FFF
 vim.g.fff = {
 	lazy_sync = true,
 }
 require("fff").setup({
 	preview = {
 		enabled = false,
-	}
+	},
 })
 
--- Treesitter
 local parsers = { "lua", "python", "rust" }
 local nts = require("nvim-treesitter")
 nts.setup()
 nts.install(parsers)
 
--- Oil
 require("oil").setup({
 	keymaps = {
 		["l"] = { "actions.select", mode = "n" },
@@ -228,108 +158,35 @@ require("oil").setup({
 	view_options = { show_hidden = true },
 })
 
--- Blink.cmp
 require("blink.cmp").setup({
 	keymap = { preset = "default" },
 	appearance = { nerd_font_variant = "mono" },
 	sources = { default = { "lsp", "path", "snippets", "buffer" } },
 	fuzzy = { implementation = "prefer_rust_with_warning" },
-	completion = {
-		menu = {
-			-- auto_show = true,
-			-- border = "rounded",
-			-- winhighlight = "Normal:BlinkCmpMenu,FloatBorder:BlinkCmpMenuBorder,CursorLine:BlinkCmpMenuSelection,Search:None",
-			-- scrollbar = true,
-		},
-		documentation = {
-			auto_show = true,
-			auto_show_delay_ms = 200,
-			treesitter_highlighting = true,
-			-- window = {
-			-- 	border = "rounded",
-			-- 	min_width = 10,
-			-- 	max_width = 80,
-			-- 	max_height = 30,
-			-- 	scrollbar = true,
-			-- },
-		},
+	documentation = {
+		auto_show = true,
+		auto_show_delay_ms = 200,
+		treesitter_highlighting = true,
 	},
 })
 
--- Autopairs
 require("nvim-autopairs").setup({})
 
--- Lualine
--- require("lualine").setup({
--- 	options = {
--- 		theme = "boo-berry",
--- 		component_separators = { left = "", right = "" },
--- 		section_separators = { left = "", right = "" },
--- 	},
--- })
-
-
-require('lualine').setup{
-  options = {
-    theme = 'auto',
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff'},
-    lualine_c = {'buffers'},
-    lualine_x = {'tabs'},
-    lualine_y = {'progress'},
-    -- lualine_z = {
-    --   { 'diagnostics',
-    --     sources = {'nvim_diagnostic', 'nvim_lsp'},
-    --     sections = {'error', 'warn', 'info', 'hint'},
-    --     diagnostics_color = {
-    --       -- Same values as the general color option can be used here.
-    --       error = 'DiagnosticError', -- Changes diagnostics' error color.
-    --       warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
-    --       info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
-    --       hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
-    --     },
-    --     symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
-    --     colored = true,           -- Displays diagnostics status in color if set to true.
-    --     update_in_insert = false, -- Update diagnostics in insert mode.
-    --     always_visible = false,   -- Show diagnostics even if there are none.
-    --   }
-    -- }
-  }
-}
-
 require("tiny-inline-diagnostic").setup({
-	preset = "powerline",
+	preset = "minimal",
 	options = {
-		multilines = {
-			enabled = true,
-		},
 		show_source = {
 			enabled = true,
-			if_many = true,
-		},
-		add_messages = {
-			display_count = true,
 		},
 	},
 })
 vim.diagnostic.config({ virtual_text = false })
 
--- ============================================================================
--- Keymaps
--- ============================================================================
---
 local keymap = vim.keymap.set
-
--- General
 keymap("n", "<leader>r", ":update<CR> :so<CR>")
 keymap("i", "jk", "<Esc>")
 keymap("i", "kj", "<Esc>")
 
--- Window splits
 keymap("n", "sv", "<cmd>vsplit<CR>")
 keymap("n", "ss", "<cmd>split<CR>")
 keymap("n", "sd", "<cmd>close<CR>")
@@ -339,22 +196,17 @@ keymap("n", "sk", "<C-w>k")
 keymap("n", "sj", "<C-w>j")
 keymap("n", "sl", "<C-w>l")
 
--- Navigation
 keymap("n", "<C-d>", "<C-d>zz")
 keymap("n", "<C-u>", "<C-u>zz")
 
--- LSP
 keymap("n", "<leader><leader>", vim.lsp.buf.format)
 
--- Clipboard
 keymap("x", "y", [["+y]])
 keymap({ "n", "v", "x" }, "<leader>y", '"+y')
 keymap({ "n", "v", "x" }, "<leader>p", '"+p')
 
--- Package management
 keymap("n", "<leader>U", "<cmd>lua vim.pack.update()<CR>")
 
--- File navigation
 keymap("n", "ff", function()
 	require("fff").find_files()
 end)
@@ -365,20 +217,16 @@ end)
 
 keymap("n", "-", "<CMD>Oil<CR>")
 
--- Select all
 keymap("n", "vae", "ggVG")
 
--- Text editing
 keymap("v", "K", ":m '<-2<CR>gv=gv")
 keymap("v", "J", ":m '>+1<CR>gv=gv")
 keymap("v", "H", "<gv")
 keymap("v", "L", ">gv")
 
--- Treesitter text objects
 local nts_select = require("nvim-treesitter-textobjects.select").select_textobject
 local nts_move = require("nvim-treesitter-textobjects.move")
 
--- Text object selection
 keymap({ "x", "o" }, "af", function()
 	nts_select("@function.outer", "textobjects")
 end)
@@ -391,8 +239,6 @@ end)
 keymap({ "x", "o" }, "ic", function()
 	nts_select("@class.inner", "textobjects")
 end)
-
--- Text object navigation (next start)
 keymap({ "n", "o" }, "]f", function()
 	nts_move.goto_next_start("@function.outer", "textobjects")
 end)
@@ -405,8 +251,6 @@ end)
 keymap({ "n", "o" }, "]s", function()
 	nts_move.goto_next_start("@local.scope", "locals")
 end)
-
--- Text object navigation (next end)
 keymap({ "n", "o" }, "]F", function()
 	nts_move.goto_next_end("@function.outer", "textobjects")
 end)
@@ -414,15 +258,12 @@ keymap({ "n", "o" }, "]C", function()
 	nts_move.goto_next_end("@class.outer", "textobjects")
 end)
 
--- Text object navigation (previous start)
 keymap({ "n", "o" }, "[f", function()
 	nts_move.goto_previous_start("@function.outer", "textobjects")
 end)
 keymap({ "n", "o" }, "[c", function()
 	nts_move.goto_previous_start("@class.outer", "textobjects")
 end)
-
--- Text object navigation (previous end)
 keymap({ "n", "o" }, "[F", function()
 	nts_move.goto_previous_end("@function.outer", "textobjects")
 end)

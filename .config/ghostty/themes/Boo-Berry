@@ -1,7 +1,7 @@
 # Boo-Berry
 # Ported from mrpbennett/boo-berry.nvim (originally from the Helix boo_berry theme by bootra)
 
-background = #3A2A4D
+background = #2B1C3D
 foreground = #C7B8E0
 
 cursor-color = #C7B8E0

@@ -8,9 +8,9 @@ return {
 		".git",
 	},
 	filetypes = { "python" },
-		init_options = {
-			settings = {
-				organizeImports = true,
-			},
+	init_options = {
+		settings = {
+			organizeImports = true,
 		},
+	},
 }

@@ -1,5 +1,13 @@
 {
   "plugins": {
+    "Eezzy.nvim": {
+      "rev": "b3e75bbf8a597385c7276f4560bbcf9e3fd00a24",
+      "src": "https://github.com/ashish2508/Eezzy.nvim"
+    },
+    "black-metal-theme-neovim": {
+      "rev": "6d0207871387077f40d5396ab1ae90520e688d36",
+      "src": "https://github.com/metalelf0/black-metal-theme-neovim"
+    },
     "blink.cmp": {
       "rev": "4b18c32adef2898f95cdef6192cbd5796c1a332d",
       "src": "https://github.com/saghen/blink.cmp",
@@ -8,6 +16,18 @@
     "boo-berry.nvim": {
       "rev": "465a0f30cf639a5b1137fc1b4120dfe7e2ed3d2c",
       "src": "https://github.com/mrpbennett/boo-berry.nvim"
+    },
+    "cursor-dark.nvim": {
+      "rev": "d8800f6aa6c87038fdb2f25042249de2ab3b8b49",
+      "src": "https://github.com/ydkulks/cursor-dark.nvim"
+    },
+    "devel.nvim": {
+      "rev": "34a201926bbe6371e2f772e51571dcc6eb74c1c3",
+      "src": "https://github.com/gnualmalki/devel.nvim"
+    },
+    "doric-themes.nvim": {
+      "rev": "cff89b1b40f599fc0b151181c96fa31fdc82b993",
+      "src": "https://github.com/aymenhafeez/doric-themes.nvim"
     },
     "fff.nvim": {
       "rev": "29f81a141f60a74368266fdc28207496c8080e8d",
@@ -25,9 +45,29 @@
       "rev": "790afe9dd085aa04eccd1da3626c5fa05c620e53",
       "src": "https://github.com/sainnhe/gruvbox-material"
     },
+    "gruvdark.nvim": {
+      "rev": "371afe9687fac120d02524942a72b487c1e813b9",
+      "src": "https://github.com/darianmorat/gruvdark.nvim"
+    },
     "lualine.nvim": {
       "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "melange-nvim": {
+      "rev": "ce42f6b629beeaa00591ba73a77d3eeac4cf28ce",
+      "src": "https://github.com/savq/melange-nvim"
+    },
+    "mini.indentscope": {
+      "rev": "065c7713fb4cd0124fe1462f15f27feeb8b04406",
+      "src": "https://github.com/nvim-mini/mini.indentscope"
+    },
+    "modus-themes.nvim": {
+      "rev": "c57c2c56c9f0af04f3b609d11caa840880074784",
+      "src": "https://github.com/miikanissi/modus-themes.nvim"
+    },
+    "nvim-256noir": {
+      "rev": "cdaedc1ed6fc7c729188534d9ac5a650af0d3018",
+      "src": "https://github.com/padulkemid/nvim-256noir"
     },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
