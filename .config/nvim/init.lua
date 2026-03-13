@@ -69,7 +69,7 @@ opt.undofile = true
 opt.incsearch = true
 opt.winborder = "rounded"
 
-vim.lsp.enable({ "ruff", "ty", "luals", "rumdl", "rust-analyzer" })
+vim.lsp.enable({ "ruff", "pyrefly", "luals", "rumdl", "rust-analyzer" })
 
 local autocmd = vim.api.nvim_create_autocmd
 
