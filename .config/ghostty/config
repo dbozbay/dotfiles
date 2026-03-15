@@ -1,5 +1,5 @@
-theme = cursor-dark
-font-family = PlemolJP Console NF
+theme = Cutie Pro
+font-family = Terminess Nerd Font
 font-size = 24
 font-thicken = true
 
@@ -10,7 +10,6 @@ cursor-style-blink = true
 macos-titlebar-style = hidden
 mouse-hide-while-typing = true
 confirm-close-surface = false
-macos-window-shadow = false
 
 window-padding-x = 1
 window-padding-y = 1
