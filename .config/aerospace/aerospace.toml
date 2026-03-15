@@ -20,12 +20,12 @@ enable-normalization-opposite-orientation-for-nested-containers = false
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 [gaps]
-inner.horizontal = 5
-inner.vertical = 5
-outer.left = 5
-outer.bottom = 5
-outer.top = 5
-outer.right = 5
+inner.horizontal = 1
+inner.vertical = 1
+outer.left = 1
+outer.bottom = 1
+outer.top = 1
+outer.right = 1
 
 
 [mode.main.binding]
@@ -115,11 +115,11 @@ run = 'move-node-to-workspace 2'
 # Terminals
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = ['layout tiling', 'move-node-to-workspace 3']
+run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Terminal'
-run = 'move-node-to-workspace 3'
+run = 'move-node-to-workspace 2'
 
 # AI
 [[on-window-detected]]
