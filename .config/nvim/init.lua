@@ -7,48 +7,14 @@ vim.pack.add({
 	{ src = "https://github.com/dmtrKovalenko/fff.nvim" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/0xleodevv/oc-2.nvim" },
 	-- { src = "https://github.com/fraeso/xcodedark.nvim" },
-	-- { src = "https://github.com/bartekjaszczak/gruv-vsassist.nvim" },
-	{ src = "https://github.com/ydkulks/cursor-dark.nvim" },
+	-- { src = "https://github.com/ydkulks/cursor-dark.nvim" },
 	-- { src = "https://github.com/mrpbennett/boo-berry.nvim"},
-	-- { src = "https://github.com/gnualmalki/devel.nvim"},
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 }, { load = true })
 
--- require("xcodedark").setup({
--- 	transparent = true,
--- 	integrations = {
--- 		telescope = false,
--- 		nvim_tree = false,
--- 		gitsigns = true,
--- 		bufferline = false,
--- 		incline = false,
--- 		lazygit = false,
--- 		which_key = false,
--- 		notify = true,
--- 		snacks = false,
--- 		blink = true,
--- 	},
--- 	terminal_colors = true,
--- })
-
--- require("gruv-vsassist").setup({
--- 	transparent = true,
--- 	italic_comments = true,
--- 	disable_nvimtree_bg = true,
--- 	color_overrides = {
--- 		vscLineNumber = "#FFFFFF",
--- 	},
--- })
-
--- require("boo-berry").setup({
---   italic_comment = true,
---   colors = {
---     bg = "#2B1C3D",
---   },
--- })
---
-vim.cmd.colorscheme("cursor-dark")
+vim.cmd.colorscheme("oc-2")
 
 local opt = vim.opt
 vim.g.mapleader = " "
