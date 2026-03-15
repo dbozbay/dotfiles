@@ -1,6 +1,6 @@
 theme = Cutie Pro
 font-family = Terminess Nerd Font
-font-size = 24
+font-size = 30
 font-thicken = true
 
 shell-integration-features = no-cursor
