@@ -1,19 +1,18 @@
 vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
-	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("^1") },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/dmtrKovalenko/fff.nvim" },
-	{ src = "https://github.com/windwp/nvim-autopairs" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/saghen/blink.cmp"},
+	{ src = "https://github.com/saghen/blink.indent"},
 	{ src = "https://github.com/0xleodevv/oc-2.nvim" },
 	-- { src = "https://github.com/fraeso/xcodedark.nvim" },
 	-- { src = "https://github.com/ydkulks/cursor-dark.nvim" },
 	-- { src = "https://github.com/mrpbennett/boo-berry.nvim"},
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 }, { load = true })
-
 vim.cmd.colorscheme("oc-2")
 
 local opt = vim.opt
@@ -116,6 +115,9 @@ local nts = require("nvim-treesitter")
 nts.setup()
 nts.install(parsers)
 
+require("blink.cmp").setup()
+require('blink.indent').setup({})
+
 require("oil").setup({
 	keymaps = {
 		["l"] = { "actions.select", mode = "n" },
@@ -124,19 +126,6 @@ require("oil").setup({
 	view_options = { show_hidden = true },
 })
 
-require("blink.cmp").setup({
-	keymap = { preset = "default" },
-	appearance = { nerd_font_variant = "mono" },
-	sources = { default = { "lsp", "path", "snippets", "buffer" } },
-	fuzzy = { implementation = "prefer_rust_with_warning" },
-	documentation = {
-		auto_show = true,
-		auto_show_delay_ms = 200,
-		treesitter_highlighting = true,
-	},
-})
-
-require("nvim-autopairs").setup({})
 
 require("tiny-inline-diagnostic").setup({
 	preset = "minimal",
