@@ -12,6 +12,18 @@
       "rev": "9c80820ca77218a8d28e70075d6f44a1609911fe",
       "src": "https://github.com/saghen/blink.indent"
     },
+    "boo-berry.nvim": {
+      "rev": "d3ae631b9176e99ea7b758761f3c20fbad82437e",
+      "src": "https://github.com/mrpbennett/boo-berry.nvim"
+    },
+    "cursor-dark.nvim": {
+      "rev": "d8800f6aa6c87038fdb2f25042249de2ab3b8b49",
+      "src": "https://github.com/ydkulks/cursor-dark.nvim"
+    },
+    "devel.nvim": {
+      "rev": "34a201926bbe6371e2f772e51571dcc6eb74c1c3",
+      "src": "https://github.com/gnualmalki/devel.nvim"
+    },
     "fff.nvim": {
       "rev": "fcdf4a9172fba824ca6834731b93b74eba51d1c3",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
@@ -19,6 +31,22 @@
     "gitsigns.nvim": {
       "rev": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "gruv-vsassist.nvim": {
+      "rev": "15056d1257e991a88db14e0ce16b68a21caeb68c",
+      "src": "https://github.com/bartekjaszczak/gruv-vsassist.nvim"
+    },
+    "gruvbox-material": {
+      "rev": "790afe9dd085aa04eccd1da3626c5fa05c620e53",
+      "src": "https://github.com/sainnhe/gruvbox-material"
+    },
+    "lualine.nvim": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "neovim": {
+      "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
+      "src": "https://github.com/rose-pine/neovim"
     },
     "nvim-autopairs": {
       "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
@@ -49,6 +77,14 @@
     "tiny-inline-diagnostic.nvim": {
       "rev": "ba133b3e932416e4b9507095731a6d7276878fe8",
       "src": "https://github.com/rachartier/tiny-inline-diagnostic.nvim"
+    },
+    "vsassist.nvim": {
+      "rev": "2c44d2ba7079eaee06320559ce0c6467a6a64165",
+      "src": "https://github.com/BoHomola/vsassist.nvim"
+    },
+    "xcodedark.nvim": {
+      "rev": "1e39372b9d40a4b690d5a21b9d49eaa5d50e3fbe",
+      "src": "https://github.com/fraeso/xcodedark.nvim"
     }
   }
 }

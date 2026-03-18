@@ -8,12 +8,14 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp"},
 	{ src = "https://github.com/saghen/blink.indent"},
 	{ src = "https://github.com/0xleodevv/oc-2.nvim" },
+	{ src = "https://github.com/rose-pine/neovim"},
 	-- { src = "https://github.com/fraeso/xcodedark.nvim" },
 	-- { src = "https://github.com/ydkulks/cursor-dark.nvim" },
 	-- { src = "https://github.com/mrpbennett/boo-berry.nvim"},
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
 }, { load = true })
-vim.cmd.colorscheme("oc-2")
+
+vim.cmd.colorscheme("rose-pine-dawn")
 
 local opt = vim.opt
 vim.g.mapleader = " "
