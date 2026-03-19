@@ -1,4 +1,4 @@
-line-length = 120
+# line-length = 120
 
 [lint]
 select = [
@@ -6,15 +6,16 @@ select = [
     "W",  # pycodestyle warnings
     "F",  # pyflakes
     "I",  # isort
-		"N",  # pep8 naming
     "B",  # flake8-bugbear
-		"D",  # pydocstyle
-		"PL", # pylint
-    "C4", # flake8-comprehensions
-    "UP", # pyupgrade
-		"NPY",# numpy
-		"PD", # pandas
-		"RUF",# ruff specific rules
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+    "W191",  # indentation contains tabs
 ]
 
 [format]
