@@ -1,11 +1,11 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "ba174a5819b0d1eb4e3bab8c0231a26293f58338",
+      "rev": "612f4bd2bc29d9e7dc7be1dde960908951bedad1",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "blink.download": {
-      "rev": "86361b98f3c8317904a08e3bd12cf3cdcbe3e925",
+      "rev": "2e72a595e5d6a6eca9e31b5476880cc75cc65998",
       "src": "https://github.com/saghen/blink.download"
     },
     "blink.indent": {
@@ -25,7 +25,7 @@
       "src": "https://github.com/gnualmalki/devel.nvim"
     },
     "fff.nvim": {
-      "rev": "fcdf4a9172fba824ca6834731b93b74eba51d1c3",
+      "rev": "b005c0a790216bb19bbf7c051d0ecc4572181000",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "gitsigns.nvim": {
@@ -40,6 +40,10 @@
       "rev": "790afe9dd085aa04eccd1da3626c5fa05c620e53",
       "src": "https://github.com/sainnhe/gruvbox-material"
     },
+    "gruvbox.nvim": {
+      "rev": "9d0e3af224c5492069a493bb43c6ec2b78497454",
+      "src": "https://github.com/motaz-shokry/gruvbox.nvim"
+    },
     "lualine.nvim": {
       "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -53,12 +57,12 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-treesitter": {
-      "rev": "2f5d4c3f3c675962242096bcc8e586d76dd72eb2",
+      "rev": "2b50ab5ccbcd9e5708deb351308edd738adbf84c",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "4e91b5d0394329a229725b021a8ea217099826ef",
+      "rev": "7359dfcefa38db632541e1f9b5b5f291626a1d47",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
@@ -73,6 +77,10 @@
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "oxocarbon.nvim": {
+      "rev": "a7ba74849a00546a311f8c146320b433900393e7",
+      "src": "https://github.com/nyoom-engineering/oxocarbon.nvim"
     },
     "tiny-inline-diagnostic.nvim": {
       "rev": "ba133b3e932416e4b9507095731a6d7276878fe8",
