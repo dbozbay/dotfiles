@@ -1,8 +1,9 @@
 {
   "plugins": {
     "blink.cmp": {
-      "rev": "612f4bd2bc29d9e7dc7be1dde960908951bedad1",
-      "src": "https://github.com/saghen/blink.cmp"
+      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": ">=0.0.0"
     },
     "blink.download": {
       "rev": "2e72a595e5d6a6eca9e31b5476880cc75cc65998",

@@ -5,7 +5,7 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/dmtrKovalenko/fff.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/saghen/blink.cmp"},
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range('*')},
 	{ src = "https://github.com/saghen/blink.indent"},
 	{ src = "https://github.com/0xleodevv/oc-2.nvim" },
 	{ src = "https://github.com/rose-pine/neovim"},
