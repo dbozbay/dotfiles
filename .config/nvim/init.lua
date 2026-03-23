@@ -5,19 +5,15 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/dmtrKovalenko/fff.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range('*')},
-	{ src = "https://github.com/saghen/blink.indent"},
-	{ src = "https://github.com/0xleodevv/oc-2.nvim" },
-	{ src = "https://github.com/rose-pine/neovim"},
-	-- { src = "https://github.com/fraeso/xcodedark.nvim" },
-	-- { src = "https://github.com/ydkulks/cursor-dark.nvim" },
-	-- { src = "https://github.com/mrpbennett/boo-berry.nvim"},
+	{ src = "https://github.com/saghen/blink.cmp", version = vim.version.range("*") },
+	{ src = "https://github.com/rose-pine/neovim" },
 	{ src = "https://github.com/rachartier/tiny-inline-diagnostic.nvim" },
+	{ src = "https://github.com/rktjmp/lush.nvim" },
+	{ src = "https://github.com/zenbones-theme/zenbones.nvim" },
 }, { load = true })
 
-vim.cmd.colorscheme("rose-pine-dawn")
-
 local opt = vim.opt
+
 vim.g.mapleader = " "
 opt.number = true
 opt.relativenumber = true
@@ -34,7 +30,10 @@ opt.termguicolors = true
 opt.ignorecase = true
 opt.undofile = true
 opt.incsearch = true
-opt.winborder = "rounded"
+-- opt.winborder = "rounded"
+opt.background = "light"
+
+vim.cmd([[colorscheme zenbones]])
 
 vim.lsp.enable({ "ruff", "pyrefly", "luals", "rumdl", "rust-analyzer" })
 
@@ -118,7 +117,7 @@ nts.setup()
 nts.install(parsers)
 
 require("blink.cmp").setup()
-require('blink.indent').setup({})
+-- require('blink.indent').setup({})
 
 require("oil").setup({
 	keymaps = {
@@ -127,7 +126,6 @@ require("oil").setup({
 	},
 	view_options = { show_hidden = true },
 })
-
 
 require("tiny-inline-diagnostic").setup({
 	preset = "minimal",
