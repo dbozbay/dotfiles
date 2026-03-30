@@ -35,7 +35,7 @@ opt.background = "light"
 
 vim.cmd([[colorscheme zenbones]])
 
-vim.lsp.enable({ "ruff", "pyrefly", "luals", "rumdl", "rust-analyzer" })
+vim.lsp.enable({ "ruff", "pyrefly", "luals", "rumdl", "rust-analyzer", "sqruff"})
 
 local autocmd = vim.api.nvim_create_autocmd
 

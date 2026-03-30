@@ -10,11 +10,11 @@
       "version": ">=0.0.0"
     },
     "fff.nvim": {
-      "rev": "dd56a3a8a8a5a85522badaf6485f28c8f7a7c840",
+      "rev": "e83b137be5d9a2947f59e1b68e0b8c4ab3eac2f3",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3",
+      "rev": "50c205548d8b037b7ff6378fca6d21146f0b6161",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lush.nvim": {
@@ -26,7 +26,7 @@
       "src": "https://github.com/rose-pine/neovim"
     },
     "nvim-treesitter": {
-      "rev": "e5f65e31a5ec0e8526b2311ff8c7aaea4a581c82",
+      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
